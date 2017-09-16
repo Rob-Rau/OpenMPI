@@ -1,0 +1,6 @@
+.dub
+dub.selections.json
+*.back
+mpi_configure
+mpi_splice
+source/mpi/package.d
