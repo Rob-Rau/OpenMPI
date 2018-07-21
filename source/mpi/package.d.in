@@ -1049,7 +1049,7 @@ alias MPI_2REAL = OMPI_PREDEFINED_GLOBAL!(MPI_Datatype, ompi_mpi_2real);
 alias MPI_2DOUBLE_PRECISION = OMPI_PREDEFINED_GLOBAL!(MPI_Datatype, ompi_mpi_2dblprec);
 alias MPI_2INTEGER = OMPI_PREDEFINED_GLOBAL!(MPI_Datatype, ompi_mpi_2integer);
 
-static if(OMPI_MAJOR_VERSION == 1 && OMPI_MINOR_VERSION >= 6)
+static if((OMPI_MAJOR_VERSION == 1 && OMPI_MINOR_VERSION >= 6) || (OMPI_MAJOR_VERSION == 2))
 {
     /* New datatypes from the MPI 2.2 standard */
     alias MPI_INT8_T                = OMPI_PREDEFINED_GLOBAL!(MPI_Datatype, ompi_mpi_int8_t);
