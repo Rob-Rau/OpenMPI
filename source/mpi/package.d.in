@@ -106,7 +106,7 @@ static if(OMPI_MAJOR_VERSION == 1 && OMPI_MINOR_VERSION < 6)
 else
     alias MPI_Aint = OPAL_PTRDIFF_TYPE;
 alias MPI_Offset = OMPI_MPI_OFFSET_TYPE;
-static if(OMPI_MAJOR_VERSION == 1 && OMPI_MINOR_VERSION >= 8)
+static if(OMPI_MAJOR_VERSION >= 1 && OMPI_MINOR_VERSION >= 8)
     alias MPI_Count = OMPI_MPI_COUNT_TYPE;
 struct ompi_communicator_t;
 struct ompi_datatype_t;
@@ -134,11 +134,11 @@ alias MPI_Group = ompi_group_t*;
 alias MPI_Info = ompi_info_t*;
 alias MPI_Op = ompi_op_t*;
 alias MPI_Request = ompi_request_t*;
-static if(OMPI_MAJOR_VERSION == 1 && OMPI_MINOR_VERSION >= 8)
+static if(OMPI_MAJOR_VERSION >= 1 && OMPI_MINOR_VERSION >= 8)
     alias MPI_Message = ompi_message_t*;
 alias MPI_Status = ompi_status_public_t;
 alias MPI_Win = ompi_win_t*;
-static if(OMPI_MAJOR_VERSION == 1 && OMPI_MINOR_VERSION >= 8)
+static if(OMPI_MAJOR_VERSION >= 1 && OMPI_MINOR_VERSION >= 8)
 {
     alias MPI_T_enum = mca_base_var_enum_t*;
     alias MPI_T_cvar_handle = ompi_mpit_cvar_handle_t*;
@@ -215,10 +215,10 @@ else
     enum MPI_MAX_ERROR_STRING   = OPAL_MAX_ERROR_STRING;   /* max error message length */
     enum MPI_MAX_OBJECT_NAME    = OPAL_MAX_OBJECT_NAME;    /* max object name length */
 }
-static if(OMPI_MAJOR_VERSION == 1 && OMPI_MINOR_VERSION >= 8)
+static if(OMPI_MAJOR_VERSION >= 1 && OMPI_MINOR_VERSION >= 8)
     enum MPI_MAX_LIBRARY_VERSION_STRING = 256;             /* max length of library version string */
 enum MPI_UNDEFINED          = -32766;                  /* undefined stuff */
-static if(OMPI_MAJOR_VERSION == 1 && OMPI_MINOR_VERSION >= 8)
+static if(OMPI_MAJOR_VERSION >= 1 && OMPI_MINOR_VERSION >= 8)
     enum MPI_DIST_GRAPH         = 3;
 enum MPI_CART               = 1;                       /* cartesian topology */
 enum MPI_GRAPH              = 2;                       /* graph topology */
@@ -227,7 +227,7 @@ enum MPI_KEYVAL_INVALID     = -1;                      /* invalid key value */
 /*
  * More constants
  */
-static if(OMPI_MAJOR_VERSION == 1 && OMPI_MINOR_VERSION >= 8)
+static if(OMPI_MAJOR_VERSION >= 1 && OMPI_MINOR_VERSION >= 8)
 {
     enum MPI_UNWEIGHTED           = cast(void*) 2;      /* unweighted graph */
     enum MPI_WEIGHTS_EMPTY        = cast(void*) 3;      /* empty weights */
@@ -301,7 +301,7 @@ enum MPI_MODE_NOSUCCEED      =   16;
 
 enum MPI_LOCK_EXCLUSIVE      =    1;
 enum MPI_LOCK_SHARED         =    2;
-static if(OMPI_MAJOR_VERSION == 1 && OMPI_MINOR_VERSION >= 8)
+static if(OMPI_MAJOR_VERSION >= 1 && OMPI_MINOR_VERSION >= 8)
 {
     enum MPI_WIN_FLAVOR_CREATE   =    1;
     enum MPI_WIN_FLAVOR_ALLOCATE =    2;
@@ -317,7 +317,7 @@ static if(OMPI_MAJOR_VERSION == 1 && OMPI_MINOR_VERSION >= 8)
  * DO NOT CHANGE THE ORDER WITHOUT ALSO CHANGING THE ORDER IN
  * src/attribute/attribute_predefined.c and mpif.h.in.
  */
-static if(OMPI_MAJOR_VERSION == 1 && OMPI_MINOR_VERSION >= 8)
+static if(OMPI_MAJOR_VERSION >= 1 && OMPI_MINOR_VERSION >= 8)
 enum {
     /* MPI-1 */
     MPI_TAG_UB,
@@ -425,7 +425,7 @@ enum MPI_ERR_SPAWN                 = 50;
 enum MPI_ERR_UNSUPPORTED_DATAREP   = 51;
 enum MPI_ERR_UNSUPPORTED_OPERATION = 52;
 enum MPI_ERR_WIN                   = 53;
-static if(OMPI_MAJOR_VERSION == 1 && OMPI_MINOR_VERSION >= 8)
+static if(OMPI_MAJOR_VERSION >= 1 && OMPI_MINOR_VERSION >= 8)
 {
     enum MPI_T_ERR_MEMORY              = 54;
     enum MPI_T_ERR_NOT_INITIALIZED     = 55;
@@ -490,7 +490,7 @@ enum
  * Datatype combiners.
  * Do not change the order of these without also modifying mpif.h.in.
  */
-static if(OMPI_MAJOR_VERSION == 1 && OMPI_MINOR_VERSION >= 8)
+static if(OMPI_MAJOR_VERSION >= 1 && OMPI_MINOR_VERSION >= 8)
 enum
 {
     MPI_COMBINER_NAMED,
@@ -535,7 +535,7 @@ else enum
     MPI_COMBINER_RESIZED,
 }
 
-static if(OMPI_MAJOR_VERSION == 1 && OMPI_MINOR_VERSION >= 8)
+static if(OMPI_MAJOR_VERSION >= 1 && OMPI_MINOR_VERSION >= 8)
 {
     /*
      * Communicator split type constants.
@@ -614,7 +614,7 @@ static if(OMPI_MAJOR_VERSION == 1 && OMPI_MINOR_VERSION >= 8)
 alias MPI_GROUP_NULL = OMPI_PREDEFINED_GLOBAL!(MPI_Group, ompi_mpi_group_null);
 alias MPI_COMM_NULL = OMPI_PREDEFINED_GLOBAL!(MPI_Comm, ompi_mpi_comm_null);
 alias MPI_REQUEST_NULL = OMPI_PREDEFINED_GLOBAL!(MPI_Request, ompi_request_null);
-static if(OMPI_MAJOR_VERSION == 1 && OMPI_MINOR_VERSION >= 8)
+static if(OMPI_MAJOR_VERSION >= 1 && OMPI_MINOR_VERSION >= 8)
     alias MPI_MESSAGE_NULL = OMPI_PREDEFINED_GLOBAL!(MPI_Message, ompi_message_null);
 alias MPI_OP_NULL = OMPI_PREDEFINED_GLOBAL!(MPI_Op, ompi_mpi_op_null);
 alias MPI_ERRHANDLER_NULL = OMPI_PREDEFINED_GLOBAL!(MPI_Errhandler, ompi_mpi_errhandler_null);
@@ -624,7 +624,7 @@ static if(OMPI_PROVIDE_MPI_FILE_INTERFACE)
 {
     alias MPI_FILE_NULL = OMPI_PREDEFINED_GLOBAL!(MPI_File, ompi_mpi_file_null);
 }
-static if(OMPI_MAJOR_VERSION == 1 && OMPI_MINOR_VERSION >= 8)
+static if(OMPI_MAJOR_VERSION >= 1 && OMPI_MINOR_VERSION >= 8)
 {
     enum MPI_T_ENUM_NULL = cast(MPI_T_enum) null;
     
@@ -637,7 +637,7 @@ static if(OMPI_MAJOR_VERSION == 1 && OMPI_MINOR_VERSION >= 8)
 enum MPI_STATUS_IGNORE = cast(MPI_Status*) 0;
 enum MPI_STATUSES_IGNORE = cast(MPI_Status*) 0;
 
-static if(OMPI_MAJOR_VERSION == 1 && OMPI_MINOR_VERSION >= 8)
+static if(OMPI_MAJOR_VERSION >= 1 && OMPI_MINOR_VERSION >= 8)
 {
     /*
      * Special MPI_T handles
@@ -663,7 +663,7 @@ static if(OMPI_MAJOR_VERSION == 1 && OMPI_MINOR_VERSION >= 8)
  compiled as MPI_TYPE_NULL_DELETE_FN).  So add some #if kinds of
  protection for this case. */
 
-static if ((OMPI_MAJOR_VERSION == 1 && OMPI_MINOR_VERSION >= 8
+static if ((OMPI_MAJOR_VERSION >= 1 && OMPI_MINOR_VERSION >= 8
             && !is(typeof(OMPI_COMPILING_FORTRAN_WRAPPERS)))
         ||
         (OMPI_MAJOR_VERSION == 1 && OMPI_MINOR_VERSION < 8
@@ -696,7 +696,7 @@ static if ((OMPI_MAJOR_VERSION == 1 && OMPI_MINOR_VERSION >= 8
 }
 else
 {
-    static if(OMPI_MAJOR_VERSION == 1 && OMPI_MINOR_VERSION >= 8)
+    static if(OMPI_MAJOR_VERSION >= 1 && OMPI_MINOR_VERSION >= 8)
         enum _TEST_ = OMPI_COMPILING_FORTRAN_WRAPPERS;
     else static if(OMPI_MAJOR_VERSION == 1 && OMPI_MINOR_VERSION < 8)
         enum _TEST_ = OMPI_COMPILING_F77_WRAPPERS;
@@ -784,7 +784,7 @@ extern __gshared
     ompi_predefined_request_t ompi_request_null;
 
     //unecessary and triggers a dmd out-of-order bug
-    //static if(OMPI_MAJOR_VERSION == 1 && OMPI_MINOR_VERSION >= 8)
+    //static if(OMPI_MAJOR_VERSION >= 1 && OMPI_MINOR_VERSION >= 8)
     //{
         struct ompi_predefined_message_t {}
         ompi_predefined_message_t ompi_message_null;
@@ -806,7 +806,7 @@ extern __gshared
     ompi_predefined_op_t ompi_mpi_op_maxloc;
     ompi_predefined_op_t ompi_mpi_op_minloc;
     ompi_predefined_op_t ompi_mpi_op_replace;
-    static if(OMPI_MAJOR_VERSION == 1 && OMPI_MINOR_VERSION >= 8)
+    static if(OMPI_MAJOR_VERSION >= 1 && OMPI_MINOR_VERSION >= 8)
         ompi_predefined_op_t ompi_mpi_op_no_op;
 
     struct ompi_predefined_datatype_t {}
@@ -902,7 +902,7 @@ extern __gshared
     ompi_predefined_datatype_t ompi_mpi_uint64_t;
     ompi_predefined_datatype_t ompi_mpi_aint;
     ompi_predefined_datatype_t ompi_mpi_offset;
-    static if(OMPI_MAJOR_VERSION == 1 && OMPI_MINOR_VERSION >= 8)
+    static if(OMPI_MAJOR_VERSION >= 1 && OMPI_MINOR_VERSION >= 8)
         ompi_predefined_datatype_t ompi_mpi_count;
     ompi_predefined_datatype_t ompi_mpi_c_bool;
     ompi_predefined_datatype_t ompi_mpi_c_complex;
@@ -924,7 +924,7 @@ extern __gshared
     struct ompi_predefined_info_t {}
     ompi_predefined_info_t ompi_mpi_info_null;
     //unecessary and causes a DMD out-of-order bug
-    //static if(OMPI_MAJOR_VERSION == 1 && OMPI_MINOR_VERSION >= 8)
+    //static if(OMPI_MAJOR_VERSION >= 1 && OMPI_MINOR_VERSION >= 8)
         ompi_predefined_info_t ompi_mpi_info_env;
 
     MPI_Fint* MPI_F_STATUS_IGNORE;
@@ -939,7 +939,7 @@ alias MPI_COMM_SELF = OMPI_PREDEFINED_GLOBAL!(MPI_Comm, ompi_mpi_comm_self);
 
 alias MPI_GROUP_EMPTY = OMPI_PREDEFINED_GLOBAL!(MPI_Group, ompi_mpi_group_empty);
 
-static if(OMPI_MAJOR_VERSION == 1 && OMPI_MINOR_VERSION >= 8)
+static if(OMPI_MAJOR_VERSION >= 1 && OMPI_MINOR_VERSION >= 8)
     alias MPI_MESSAGE_NO_PROC = OMPI_PREDEFINED_GLOBAL!(MPI_Message, ompi_message_no_proc);
 
 alias MPI_MAX = OMPI_PREDEFINED_GLOBAL!(MPI_Op, ompi_mpi_op_max);
@@ -955,7 +955,7 @@ alias MPI_BXOR = OMPI_PREDEFINED_GLOBAL!(MPI_Op, ompi_mpi_op_bxor);
 alias MPI_MAXLOC = OMPI_PREDEFINED_GLOBAL!(MPI_Op, ompi_mpi_op_maxloc);
 alias MPI_MINLOC = OMPI_PREDEFINED_GLOBAL!(MPI_Op, ompi_mpi_op_minloc);
 alias MPI_REPLACE = OMPI_PREDEFINED_GLOBAL!(MPI_Op, ompi_mpi_op_replace);
-static if(OMPI_MAJOR_VERSION == 1 && OMPI_MINOR_VERSION >= 8)
+static if(OMPI_MAJOR_VERSION >= 1 && OMPI_MINOR_VERSION >= 8)
     alias MPI_NO_OP = OMPI_PREDEFINED_GLOBAL!(MPI_Op, ompi_mpi_op_no_op);
 
 /* C datatypes */
@@ -1073,7 +1073,7 @@ static if(OMPI_MAJOR_VERSION == 1 && OMPI_MINOR_VERSION >= 6)
     static if (HAVE_LONG_DOUBLE__COMPLEX)
         alias MPI_C_LONG_DOUBLE_COMPLEX = OMPI_PREDEFINED_GLOBAL!(MPI_Datatype, ompi_mpi_c_long_double_complex);
 }
-static if(OMPI_MAJOR_VERSION == 1 && OMPI_MINOR_VERSION >= 8)
+static if(OMPI_MAJOR_VERSION >= 1 && OMPI_MINOR_VERSION >= 8)
 {
     alias MPI_CXX_BOOL              = OMPI_PREDEFINED_GLOBAL!(MPI_Datatype, ompi_mpi_cxx_bool);
     alias MPI_CXX_FLOAT_COMPLEX     = OMPI_PREDEFINED_GLOBAL!(MPI_Datatype, ompi_mpi_cxx_cplex);
@@ -1363,7 +1363,7 @@ int MPI_Igatherv(void* sendbuf, int sendcount, MPI_Datatype sendtype,
 int MPI_Get_address(void* location, MPI_Aint* address);
 int MPI_Get_count(MPI_Status* status, MPI_Datatype datatype, int* count);
 int MPI_Get_elements(MPI_Status* status, MPI_Datatype datatype, int* count);
-static if(OMPI_MAJOR_VERSION == 1 && OMPI_MINOR_VERSION >= 8)
+static if(OMPI_MAJOR_VERSION >= 1 && OMPI_MINOR_VERSION >= 8)
     int MPI_Get_elements_x(MPI_Status* status, MPI_Datatype datatype, MPI_Count* count);
 int MPI_Get(void* origin_addr, int origin_count,
         MPI_Datatype origin_datatype, int target_rank,
@@ -1415,7 +1415,7 @@ int MPI_Group_union(MPI_Group group1, MPI_Group group2,
         MPI_Group* newgroup);
 int MPI_Ibsend(void* buf, int count, MPI_Datatype datatype, int dest,
         int tag, MPI_Comm comm, MPI_Request* request);
-static if(OMPI_MAJOR_VERSION == 1 && OMPI_MINOR_VERSION >= 8)
+static if(OMPI_MAJOR_VERSION >= 1 && OMPI_MINOR_VERSION >= 8)
 {
     int MPI_Improbe(int source, int tag, MPI_Comm comm,
         int* flag, MPI_Message* message,
@@ -1457,7 +1457,7 @@ int MPI_Issend(void* buf, int count, MPI_Datatype datatype, int dest,
         int tag, MPI_Comm comm, MPI_Request* request);
 int MPI_Is_thread_main(int* flag);
 int MPI_Lookup_name(char* service_name, MPI_Info info, char* port_name);
-static if(OMPI_MAJOR_VERSION == 1 && OMPI_MINOR_VERSION >= 8)
+static if(OMPI_MAJOR_VERSION >= 1 && OMPI_MINOR_VERSION >= 8)
 {
     MPI_Fint MPI_Message_c2f(MPI_Message message);
     MPI_Message MPI_Message_f2c(MPI_Fint message);
@@ -1607,7 +1607,7 @@ int MPI_Status_f2c(MPI_Fint* f_status, MPI_Status* c_status);
 int MPI_Status_set_cancelled(MPI_Status* status, int flag);
 int MPI_Status_set_elements(MPI_Status* status, MPI_Datatype datatype,
         int count);
-static if(OMPI_MAJOR_VERSION == 1 && OMPI_MINOR_VERSION >= 8)
+static if(OMPI_MAJOR_VERSION >= 1 && OMPI_MINOR_VERSION >= 8)
     int MPI_Status_set_elements_x(MPI_Status* status, MPI_Datatype datatype,
         MPI_Count count);
 int MPI_Testall(int count, MPI_Request* array_of_requests, int* flag,
@@ -1676,14 +1676,14 @@ int MPI_Type_get_envelope(MPI_Datatype type, int* num_integers,
         int* combiner);
 int MPI_Type_get_extent(MPI_Datatype type, MPI_Aint* lb,
         MPI_Aint* extent);
-static if(OMPI_MAJOR_VERSION == 1 && OMPI_MINOR_VERSION >= 8)
+static if(OMPI_MAJOR_VERSION >= 1 && OMPI_MINOR_VERSION >= 8)
     int MPI_Type_get_extent_x(MPI_Datatype type, MPI_Count* lb,
         MPI_Count* extent);
 int MPI_Type_get_name(MPI_Datatype type, char* type_name,
         int* resultlen);
 int MPI_Type_get_true_extent(MPI_Datatype datatype, MPI_Aint* true_lb,
         MPI_Aint* true_extent);
-static if(OMPI_MAJOR_VERSION == 1 && OMPI_MINOR_VERSION >= 8)
+static if(OMPI_MAJOR_VERSION >= 1 && OMPI_MINOR_VERSION >= 8)
     int MPI_Type_get_true_extent_x(MPI_Datatype datatype, MPI_Count* true_lb,
         MPI_Count* true_extent);
 int MPI_Type_indexed(int count, int* array_of_blocklengths,
@@ -1694,7 +1694,7 @@ int MPI_Type_set_attr(MPI_Datatype type, int type_keyval,
         void* attr_val);
 int MPI_Type_set_name(MPI_Datatype type, char* type_name);
 int MPI_Type_size(MPI_Datatype type, int* size);
-static if(OMPI_MAJOR_VERSION == 1 && OMPI_MINOR_VERSION >= 8)
+static if(OMPI_MAJOR_VERSION >= 1 && OMPI_MINOR_VERSION >= 8)
     int MPI_Type_size_x(MPI_Datatype type, MPI_Count* size);
 int MPI_Type_vector(int count, int blocklength, int stride,
         MPI_Datatype oldtype, MPI_Datatype* newtype);
@@ -2029,7 +2029,7 @@ int PMPI_Get_address(void* location, MPI_Aint* address);
 int PMPI_Get_count(MPI_Status* status, MPI_Datatype datatype, int* count);
 int PMPI_Get_elements(MPI_Status* status, MPI_Datatype datatype,
         int* count);
-static if(OMPI_MAJOR_VERSION == 1 && OMPI_MINOR_VERSION >= 8)
+static if(OMPI_MAJOR_VERSION >= 1 && OMPI_MINOR_VERSION >= 8)
     int PMPI_Get_elements_x(MPI_Status* status, MPI_Datatype datatype,
         MPI_Count* count);
 int PMPI_Get(void* origin_addr, int origin_count,
@@ -2082,7 +2082,7 @@ int PMPI_Group_union(MPI_Group group1, MPI_Group group2,
         MPI_Group* newgroup);
 int PMPI_Ibsend(void* buf, int count, MPI_Datatype datatype, int dest,
         int tag, MPI_Comm comm, MPI_Request* request);
-static if(OMPI_MAJOR_VERSION == 1 && OMPI_MINOR_VERSION >= 8)
+static if(OMPI_MAJOR_VERSION >= 1 && OMPI_MINOR_VERSION >= 8)
 {
     int PMPI_Improbe(int source, int tag, MPI_Comm comm,
         int* flag, MPI_Message* message,
@@ -2124,7 +2124,7 @@ int PMPI_Issend(void* buf, int count, MPI_Datatype datatype, int dest,
         int tag, MPI_Comm comm, MPI_Request* request);
 int PMPI_Is_thread_main(int* flag);
 int PMPI_Lookup_name(char* service_name, MPI_Info info, char* port_name);
-static if(OMPI_MAJOR_VERSION == 1 && OMPI_MINOR_VERSION >= 8)
+static if(OMPI_MAJOR_VERSION >= 1 && OMPI_MINOR_VERSION >= 8)
 {
     MPI_Fint PMPI_Message_c2f(MPI_Message message);
     MPI_Message PMPI_Message_f2c(MPI_Fint message);
@@ -2274,7 +2274,7 @@ int PMPI_Status_f2c(MPI_Fint* f_status, MPI_Status* c_status);
 int PMPI_Status_set_cancelled(MPI_Status* status, int flag);
 int PMPI_Status_set_elements(MPI_Status* status, MPI_Datatype datatype,
         int count);
-static if(OMPI_MAJOR_VERSION == 1 && OMPI_MINOR_VERSION >= 8)
+static if(OMPI_MAJOR_VERSION >= 1 && OMPI_MINOR_VERSION >= 8)
     int PMPI_Status_set_elements_x(MPI_Status* status, MPI_Datatype datatype,
         MPI_Count count);
 int PMPI_Testall(int count, MPI_Request* array_of_requests, int* flag,
@@ -2342,14 +2342,14 @@ int PMPI_Type_get_envelope(MPI_Datatype type, int* num_integers,
         int* combiner);
 int PMPI_Type_get_extent(MPI_Datatype type, MPI_Aint* lb,
         MPI_Aint* extent);
-static if(OMPI_MAJOR_VERSION == 1 && OMPI_MINOR_VERSION >= 8)
+static if(OMPI_MAJOR_VERSION >= 1 && OMPI_MINOR_VERSION >= 8)
     int PMPI_Type_get_extent_x(MPI_Datatype type, MPI_Count* lb,
         MPI_Count* extent);
 int PMPI_Type_get_name(MPI_Datatype type, char* type_name,
         int* resultlen);
 int PMPI_Type_get_true_extent(MPI_Datatype datatype, MPI_Aint* true_lb,
         MPI_Aint* true_extent);
-static if(OMPI_MAJOR_VERSION == 1 && OMPI_MINOR_VERSION >= 8)
+static if(OMPI_MAJOR_VERSION >= 1 && OMPI_MINOR_VERSION >= 8)
     int PMPI_Type_get_true_extent_x(MPI_Datatype datatype, MPI_Count* true_lb,
         MPI_Count* true_extent);
 int PMPI_Type_indexed(int count, int* array_of_blocklengths,
@@ -2360,7 +2360,7 @@ int PMPI_Type_set_attr(MPI_Datatype type, int type_keyval,
         void* attr_val);
 int PMPI_Type_set_name(MPI_Datatype type, char* type_name);
 int PMPI_Type_size(MPI_Datatype type, int* size);
-static if(OMPI_MAJOR_VERSION == 1 && OMPI_MINOR_VERSION >= 8)
+static if(OMPI_MAJOR_VERSION >= 1 && OMPI_MINOR_VERSION >= 8)
     int PMPI_Type_size_x(MPI_Datatype type, MPI_Count* size);
 int PMPI_Type_vector(int count, int blocklength, int stride,
         MPI_Datatype oldtype, MPI_Datatype* newtype);
@@ -2428,7 +2428,7 @@ int PMPI_Win_unlock_all(MPI_Win win);
 int PMPI_Win_wait(MPI_Win win);
 double PMPI_Wtick();
 double PMPI_Wtime();
-static if(OMPI_MAJOR_VERSION == 1 && OMPI_MINOR_VERSION >= 8)
+static if(OMPI_MAJOR_VERSION >= 1 && OMPI_MINOR_VERSION >= 8)
 {
     int PMPI_T_init_thread (int required, int* provided);
     int PMPI_T_finalize ();
